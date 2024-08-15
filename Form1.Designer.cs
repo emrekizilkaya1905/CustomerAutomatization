@@ -31,6 +31,9 @@
             panel1 = new Panel();
             dataGridView1 = new DataGridView();
             panel2 = new Panel();
+            buttonUpdate = new Button();
+            buttonDelete = new Button();
+            buttonclear = new Button();
             buttonAdd = new Button();
             label6 = new Label();
             label5 = new Label();
@@ -44,7 +47,7 @@
             textBoxSurname = new TextBox();
             textBoxName = new TextBox();
             textBoxCustomerId = new TextBox();
-            buttonclear = new Button();
+            buttonsearch = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel2.SuspendLayout();
@@ -56,7 +59,7 @@
             panel1.Controls.Add(dataGridView1);
             panel1.Location = new Point(12, 27);
             panel1.Name = "panel1";
-            panel1.Size = new Size(928, 285);
+            panel1.Size = new Size(1126, 285);
             panel1.TabIndex = 0;
             // 
             // dataGridView1
@@ -67,13 +70,16 @@
             dataGridView1.Location = new Point(0, 0);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(928, 285);
+            dataGridView1.Size = new Size(1126, 285);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellClick += dataGridView1_CellClick;
             // 
             // panel2
             // 
             panel2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel2.Controls.Add(buttonsearch);
+            panel2.Controls.Add(buttonUpdate);
+            panel2.Controls.Add(buttonDelete);
             panel2.Controls.Add(buttonclear);
             panel2.Controls.Add(buttonAdd);
             panel2.Controls.Add(label6);
@@ -90,12 +96,42 @@
             panel2.Controls.Add(textBoxCustomerId);
             panel2.Location = new Point(12, 318);
             panel2.Name = "panel2";
-            panel2.Size = new Size(928, 154);
+            panel2.Size = new Size(1126, 154);
             panel2.TabIndex = 1;
+            // 
+            // buttonUpdate
+            // 
+            buttonUpdate.Location = new Point(793, 74);
+            buttonUpdate.Name = "buttonUpdate";
+            buttonUpdate.Size = new Size(119, 35);
+            buttonUpdate.TabIndex = 15;
+            buttonUpdate.Text = "Update";
+            buttonUpdate.UseVisualStyleBackColor = true;
+            buttonUpdate.Click += buttonUpdate_Click;
+            // 
+            // buttonDelete
+            // 
+            buttonDelete.Location = new Point(793, 23);
+            buttonDelete.Name = "buttonDelete";
+            buttonDelete.Size = new Size(119, 35);
+            buttonDelete.TabIndex = 14;
+            buttonDelete.Text = "Delete";
+            buttonDelete.UseVisualStyleBackColor = true;
+            buttonDelete.Click += buttonDelete_Click;
+            // 
+            // buttonclear
+            // 
+            buttonclear.Location = new Point(652, 74);
+            buttonclear.Name = "buttonclear";
+            buttonclear.Size = new Size(119, 35);
+            buttonclear.TabIndex = 13;
+            buttonclear.Text = "ClearBox";
+            buttonclear.UseVisualStyleBackColor = true;
+            buttonclear.Click += buttonclear_Click;
             // 
             // buttonAdd
             // 
-            buttonAdd.Location = new Point(715, 23);
+            buttonAdd.Location = new Point(652, 23);
             buttonAdd.Name = "buttonAdd";
             buttonAdd.Size = new Size(119, 35);
             buttonAdd.TabIndex = 12;
@@ -201,21 +237,21 @@
             textBoxCustomerId.Size = new Size(125, 27);
             textBoxCustomerId.TabIndex = 0;
             // 
-            // buttonclear
+            // buttonsearch
             // 
-            buttonclear.Location = new Point(715, 74);
-            buttonclear.Name = "buttonclear";
-            buttonclear.Size = new Size(119, 35);
-            buttonclear.TabIndex = 13;
-            buttonclear.Text = "ClearBox";
-            buttonclear.UseVisualStyleBackColor = true;
-            buttonclear.Click += buttonclear_Click;
+            buttonsearch.Location = new Point(942, 45);
+            buttonsearch.Name = "buttonsearch";
+            buttonsearch.Size = new Size(119, 35);
+            buttonsearch.TabIndex = 16;
+            buttonsearch.Text = "Search";
+            buttonsearch.UseVisualStyleBackColor = true;
+            buttonsearch.Click += buttonsearch_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(952, 477);
+            ClientSize = new Size(1150, 477);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "Form1";
@@ -247,5 +283,8 @@
         private Label label3;
         private Button buttonAdd;
         private Button buttonclear;
+        private Button buttonDelete;
+        private Button buttonUpdate;
+        private Button buttonsearch;
     }
 }

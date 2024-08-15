@@ -66,6 +66,7 @@ namespace CustomerAutomatization
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
+            /////INSERT-------//////
             try
             {
                 connection.Open();
@@ -117,6 +118,106 @@ namespace CustomerAutomatization
         private void buttonclear_Click(object sender, EventArgs e)
         {
             clearBoxes();
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            ///////DELETE/////
+            if (textBoxCustomerId.Text.Equals("0"))
+            {
+                MessageBox.Show("Please select a customer.");
+            }
+            else
+            {
+                try
+                {
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand("DELETE FROM Customer WHERE CustomerId= @P1", connection);
+                    cmd.Parameters.AddWithValue("@P1", textBoxCustomerId.Text);
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show("There has been error occured Error code: E103\n" + ex.Message);
+                }
+                finally
+                {
+                    if (connection != null)
+                    {
+                        connection.Close();
+                    }
+                }
+            }
+            showData();
+            clearBoxes();
+        }
+
+        private void buttonUpdate_Click(object sender, EventArgs e)
+        {
+
+            if (textBoxCustomerId.Text.Equals("0"))
+            {
+                MessageBox.Show("Please select a customer.");
+            }
+            else
+            {
+                try
+                {
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand("UPDATE Customer SET Name = @P1," +
+                       " Surname = @P2, Salary = @P3, EligibleForCredit =  @P4, City = @P5 " +
+                       " WHERE CustomerId = @P6", connection);
+                    cmd.Parameters.AddWithValue("@P1", textBoxName.Text);
+                    cmd.Parameters.AddWithValue("@P2", textBoxSurname.Text);
+                    cmd.Parameters.AddWithValue("@P3", textBoxSalary.Text);
+                    cmd.Parameters.AddWithValue("@P5", textBoxCity.Text);
+
+                    int salary;
+
+                    // TextBox'taki metni int türüne dönü?türmeyi deniyoruz
+                    if (int.TryParse(textBoxSalary.Text, out salary))
+                    {
+                        if (salary >= 10000)
+                        {
+                            cmd.Parameters.AddWithValue("@P4", 1);
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@P4", 0);
+                        }
+                    }
+                    else
+                    {
+                        // Dönü?türme ba?ar?s?zsa, hata mesaj? gösteriyoruz
+                        MessageBox.Show("Invalid salary value. Please enter a valid number.");
+                        return; // ??lem sonland?r?l?r
+                    }
+
+                    cmd.Parameters.AddWithValue("@P6", textBoxCustomerId.Text);
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show("There has been error occured Error code: E104\n" + ex.Message);
+                }
+                finally
+                {
+                    if (connection != null)
+                    {
+                        connection.Close();
+                    }
+                }
+                showData();
+                clearBoxes();
+            }
+
+        }
+
+        private void buttonsearch_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
