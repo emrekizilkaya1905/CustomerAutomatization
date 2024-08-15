@@ -31,6 +31,7 @@
             panel1 = new Panel();
             dataGridView1 = new DataGridView();
             panel2 = new Panel();
+            buttonAdd = new Button();
             label6 = new Label();
             label5 = new Label();
             label4 = new Label();
@@ -43,6 +44,7 @@
             textBoxSurname = new TextBox();
             textBoxName = new TextBox();
             textBoxCustomerId = new TextBox();
+            buttonclear = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel2.SuspendLayout();
@@ -54,7 +56,7 @@
             panel1.Controls.Add(dataGridView1);
             panel1.Location = new Point(12, 27);
             panel1.Name = "panel1";
-            panel1.Size = new Size(776, 285);
+            panel1.Size = new Size(928, 285);
             panel1.TabIndex = 0;
             // 
             // dataGridView1
@@ -65,13 +67,15 @@
             dataGridView1.Location = new Point(0, 0);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(776, 285);
+            dataGridView1.Size = new Size(928, 285);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellClick += dataGridView1_CellClick;
             // 
             // panel2
             // 
             panel2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel2.Controls.Add(buttonclear);
+            panel2.Controls.Add(buttonAdd);
             panel2.Controls.Add(label6);
             panel2.Controls.Add(label5);
             panel2.Controls.Add(label4);
@@ -86,8 +90,18 @@
             panel2.Controls.Add(textBoxCustomerId);
             panel2.Location = new Point(12, 318);
             panel2.Name = "panel2";
-            panel2.Size = new Size(776, 154);
+            panel2.Size = new Size(928, 154);
             panel2.TabIndex = 1;
+            // 
+            // buttonAdd
+            // 
+            buttonAdd.Location = new Point(715, 23);
+            buttonAdd.Name = "buttonAdd";
+            buttonAdd.Size = new Size(119, 35);
+            buttonAdd.TabIndex = 12;
+            buttonAdd.Text = "Add Customer";
+            buttonAdd.UseVisualStyleBackColor = true;
+            buttonAdd.Click += buttonAdd_Click;
             // 
             // label6
             // 
@@ -152,6 +166,7 @@
             // 
             // textBoxEligible
             // 
+            textBoxEligible.Enabled = false;
             textBoxEligible.Location = new Point(483, 49);
             textBoxEligible.Name = "textBoxEligible";
             textBoxEligible.Size = new Size(125, 27);
@@ -186,11 +201,21 @@
             textBoxCustomerId.Size = new Size(125, 27);
             textBoxCustomerId.TabIndex = 0;
             // 
+            // buttonclear
+            // 
+            buttonclear.Location = new Point(715, 74);
+            buttonclear.Name = "buttonclear";
+            buttonclear.Size = new Size(119, 35);
+            buttonclear.TabIndex = 13;
+            buttonclear.Text = "ClearBox";
+            buttonclear.UseVisualStyleBackColor = true;
+            buttonclear.Click += buttonclear_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 477);
+            ClientSize = new Size(952, 477);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "Form1";
@@ -220,5 +245,7 @@
         private Label label5;
         private Label label4;
         private Label label3;
+        private Button buttonAdd;
+        private Button buttonclear;
     }
 }
