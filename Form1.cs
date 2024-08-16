@@ -217,7 +217,66 @@ namespace CustomerAutomatization
 
         private void buttonsearch_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string query = "SELECT * FROM Customer WHERE Name LIKE '" + textBoxName.Text + "%'"
+                                                       + " AND Surname LIKE '" + textBoxSurname.Text + "%'"
+                                                       + " AND City LIKE '" + textBoxCity.Text + "%'";
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(query, connection);
+                DataTable dt = new DataTable();
+                sqlDataAdapter.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    dataGridView1.DataSource = dt;
+                }
+            }
+            catch (Exception ex)
+            {
 
+                MessageBox.Show("There has been error occured Error code: E105\n" + ex.Message);
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+            dataGridView1.ClearSelection();
+        }
+
+        private void buttonIncome_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string query = "SELECT * FROM Customer WHERE Salary = " + textBoxSalary.Text;
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(query, connection);
+                DataTable dt = new DataTable();
+                sqlDataAdapter.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    dataGridView1.DataSource = dt;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("There has been error occured Error code: E106\n" + ex.Message);
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+            dataGridView1.ClearSelection();
+
+        }
+
+        private void buttonAllRecords_Click(object sender, EventArgs e)
+        {
+            showData();
         }
     }
 }

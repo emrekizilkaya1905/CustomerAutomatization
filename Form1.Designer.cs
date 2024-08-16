@@ -31,6 +31,9 @@
             panel1 = new Panel();
             dataGridView1 = new DataGridView();
             panel2 = new Panel();
+            buttonAllRecords = new Button();
+            buttonIncome = new Button();
+            buttonsearch = new Button();
             buttonUpdate = new Button();
             buttonDelete = new Button();
             buttonclear = new Button();
@@ -47,7 +50,6 @@
             textBoxSurname = new TextBox();
             textBoxName = new TextBox();
             textBoxCustomerId = new TextBox();
-            buttonsearch = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel2.SuspendLayout();
@@ -59,7 +61,7 @@
             panel1.Controls.Add(dataGridView1);
             panel1.Location = new Point(12, 27);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1126, 285);
+            panel1.Size = new Size(1184, 310);
             panel1.TabIndex = 0;
             // 
             // dataGridView1
@@ -70,13 +72,15 @@
             dataGridView1.Location = new Point(0, 0);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(1126, 285);
+            dataGridView1.Size = new Size(1184, 310);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellClick += dataGridView1_CellClick;
             // 
             // panel2
             // 
             panel2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel2.Controls.Add(buttonAllRecords);
+            panel2.Controls.Add(buttonIncome);
             panel2.Controls.Add(buttonsearch);
             panel2.Controls.Add(buttonUpdate);
             panel2.Controls.Add(buttonDelete);
@@ -94,14 +98,44 @@
             panel2.Controls.Add(textBoxSurname);
             panel2.Controls.Add(textBoxName);
             panel2.Controls.Add(textBoxCustomerId);
-            panel2.Location = new Point(12, 318);
+            panel2.Location = new Point(12, 343);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1126, 154);
+            panel2.Size = new Size(1184, 162);
             panel2.TabIndex = 1;
+            // 
+            // buttonAllRecords
+            // 
+            buttonAllRecords.Location = new Point(984, 52);
+            buttonAllRecords.Name = "buttonAllRecords";
+            buttonAllRecords.Size = new Size(156, 35);
+            buttonAllRecords.TabIndex = 18;
+            buttonAllRecords.Text = "Show All Records";
+            buttonAllRecords.UseVisualStyleBackColor = true;
+            buttonAllRecords.Click += buttonAllRecords_Click;
+            // 
+            // buttonIncome
+            // 
+            buttonIncome.Location = new Point(792, 115);
+            buttonIncome.Name = "buttonIncome";
+            buttonIncome.Size = new Size(171, 35);
+            buttonIncome.TabIndex = 17;
+            buttonIncome.Text = "Search By Income";
+            buttonIncome.UseVisualStyleBackColor = true;
+            buttonIncome.Click += buttonIncome_Click;
+            // 
+            // buttonsearch
+            // 
+            buttonsearch.Location = new Point(792, 74);
+            buttonsearch.Name = "buttonsearch";
+            buttonsearch.Size = new Size(119, 35);
+            buttonsearch.TabIndex = 16;
+            buttonsearch.Text = "Search";
+            buttonsearch.UseVisualStyleBackColor = true;
+            buttonsearch.Click += buttonsearch_Click;
             // 
             // buttonUpdate
             // 
-            buttonUpdate.Location = new Point(793, 74);
+            buttonUpdate.Location = new Point(792, 23);
             buttonUpdate.Name = "buttonUpdate";
             buttonUpdate.Size = new Size(119, 35);
             buttonUpdate.TabIndex = 15;
@@ -111,7 +145,7 @@
             // 
             // buttonDelete
             // 
-            buttonDelete.Location = new Point(793, 23);
+            buttonDelete.Location = new Point(652, 115);
             buttonDelete.Name = "buttonDelete";
             buttonDelete.Size = new Size(119, 35);
             buttonDelete.TabIndex = 14;
@@ -237,21 +271,11 @@
             textBoxCustomerId.Size = new Size(125, 27);
             textBoxCustomerId.TabIndex = 0;
             // 
-            // buttonsearch
-            // 
-            buttonsearch.Location = new Point(942, 45);
-            buttonsearch.Name = "buttonsearch";
-            buttonsearch.Size = new Size(119, 35);
-            buttonsearch.TabIndex = 16;
-            buttonsearch.Text = "Search";
-            buttonsearch.UseVisualStyleBackColor = true;
-            buttonsearch.Click += buttonsearch_Click;
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1150, 477);
+            ClientSize = new Size(1208, 502);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "Form1";
@@ -286,5 +310,7 @@
         private Button buttonDelete;
         private Button buttonUpdate;
         private Button buttonsearch;
+        private Button buttonIncome;
+        private Button buttonAllRecords;
     }
 }
